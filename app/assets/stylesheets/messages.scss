@@ -1,0 +1,148 @@
+@import "./color";
+
+.main {
+    height: calc(100vh - 80px);  // vhは「viewport height」の略で、viewport の高さ（ブラウザの高さ）に対する指定です。100vhで表示しているスマホやPCのウィンドウサイズの100%という意味になります 
+    .chat {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        height: calc(100vh - 160px);
+        width: 100%;
+        background-color: $back-color;
+        .chat-container {
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+            align-items: flex-end;
+            .message-box {
+                display: flex;
+                justify-content: space-between;
+                width: 90%;
+                background-color: white;
+                margin: 10px 10px;
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+                border-radius: 20px;
+                .message-block {
+                    float: left;
+                    height: auto;
+                    width: 80%;
+                    margin: 20px 0px;
+                    padding: 10px 10px 10px 10px; 
+                    .message-info {
+                    }
+                    p {
+                            padding: 0px 0px 0px 20px;;
+                        }
+                }
+                .message-post {
+                    float: right;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    ul {
+                        margin: 5px 5px;
+                        li {
+                            background-color: $button-color;
+                            border-radius: 5px;
+                            margin: 10px 10px;
+                            height: 30px;
+                            width: 80px;
+                            display: flex;
+                            border: solid 1px black;
+                            box-shadow: 1px 1px;
+                            a {
+                                margin: auto;
+                                color: $main-color;
+                                font-weight: bold;
+                                text-decoration: none;
+                                display: block;
+                            }
+                            &:hover {
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+                }
+                p {
+                    margin: auto;
+                }
+            }
+        }
+    }
+    
+    .chat-form {
+        padding: 20px;
+        background-color: $form-color;
+            // input[type=text] {
+            //     display: inline-block;
+            //     height: 70px;
+            //     width: 80%;
+            //     border-radius: 5px;
+            //     margin: 0px 10px;
+            //     margin-top: auto;
+            //     margin-bottom: auto;
+            //     font-size: auto;
+            //     &:hover {
+            //         opacity: 0.7;
+            //     }
+            // }
+            .submit-btn {
+                display: inline-block;
+                text-align: right;
+                color: $main-color;
+                background-color: $button-color;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: auto;
+                text-decoration: none;
+                margin: 20px 20px 20px 20px;
+                margin-bottom: auto;
+                padding: 5px 5px;
+                height: auto;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+    }
+}
+
+.delete-form {
+    display: none;
+}
+
+#counter {
+    position: fixed;
+    left: 0;
+    bottom: 100px;
+    z-index: 10;
+    height: 90px;
+    width:90px;
+    border-radius: 50%;
+    background-color: #2aa0d0;
+    text-align: center;
+    line-height: 90px;
+    color: white;
+    font-weight: bold;
+}
+
+.delete-form {
+    display: none;
+}
+
+#counter {
+    position: fixed;
+    left: 0;
+    bottom: 100px;
+    z-index: 10;
+    height: 90px;
+    width:90px;
+    border-radius: 50%;
+    background-color: #2aa0d0;
+    text-align: center;
+    line-height: 90px;
+    color: white;
+    font-weight: bold;
+}

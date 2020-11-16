@@ -1,0 +1,56 @@
+<div class="main">
+    <div class="chat" id="chat-index">
+        <div class="chat-container">
+            <% unless @messages.blank? %>
+                <% @messages.each do |message| %>
+                    <div class="message-box" data-message-id=<%= message.id%> %>
+                        <div class="message-block">
+                            <p class="message-info">
+                                <%= message.user.name %>
+                                <span>
+                                <%= message.created_at.strftime("%Y/%m/%d(%a) %H:%M") %>
+                                </span>
+                            </p>
+                            <p class="message-content"><%= simple_format message.content %></p>
+                            <p><%= image_tag message.img.url if message.img? %></p>
+                        </div>
+                        <% if current_user.id == message.user_id %>
+                            <div class="message-post">
+                                <ul>
+                                    <li>
+                                        <%= link_to "edit", messages_edit_path(message.id) %>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="delete-btn" data-id=<%= message.id %>>delete</a>
+                                        <%= form_for(message, url: messages_delete_path(message.id), method: :delete, 
+                                            html: { id: "form_#{message.id}", class: "delete-form" }) do |f| %>
+                                            <%= f.submit "delete" %>
+                                        <% end %>
+                                    </li>
+                                </ul>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+            <% else %>
+                <div class="message-box">
+                    <p>No message yet.</p>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="chat-form">
+        <%= form_with model: @message, url: messages_create_path, id: "new_message" do |f| %>
+            <%= f.text_area :content, id: "chat-form",:size=>"100x5" %>
+            <span class="img">
+                <%= f.file_field :img %>
+            </span>
+            <input type="submit"  value="SEND", class="submit-btn" >
+        <% end %>
+        </div>
+    </div>
+
+</div>
+
+<%# <div id="counter"></div> %>
